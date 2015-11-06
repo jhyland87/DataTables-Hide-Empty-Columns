@@ -95,6 +95,7 @@
                     colList     = [],
                     isWhiteList = ! ($.isPlainObject(options) && typeof options.whiteList !== 'undefined' && options.whiteList === false); // Default to true
 
+
             // If the hideEmptyCols setting is an Array..
             if($.isArray(options)) {
                 // And its populated..
@@ -112,7 +113,7 @@
                 // If its just set to true..
                 if(options.columns === true) {
                     // Set colList to true, enabling every column as a target
-                    colList = true;
+                    colList = api.columns().indexes().toArray();
                 }
                 // If hideEmptyCols.columns is undefined or empty...
                 else if(typeof options.columns === 'undefined' || options.columns.length === 0) {
@@ -124,6 +125,15 @@
                     colList = options.columns;
                 }
             }
+            // If its just a basic 'true' targeting all columns..
+            else if(options === true){
+                // .. Then get the list of all column indexes
+                colList = api.columns().indexes().toArray();
+            }
+            // Anything else should just go away
+            else {
+                return;
+            }
 
             // Iterate through each column within the table
             api.columns().every( function () {
@@ -131,7 +141,7 @@
                 emptyCount = 0;
 
                 // If the current column is *not* found in the list..
-                if(colList !== true && ($.inArray(this.index(), colList) === -1 && $.inArray(api.column(this.index()).dataSrc(), colList) === -1)) {
+                if ( $.inArray(this.index(), colList) === -1 && $.inArray(api.column(this.index()).dataSrc(), colList) === -1 ) {
                     // .. And the list type is whitelist, then skip this loop
                     if ( isWhiteList === true ) return;
                 }
