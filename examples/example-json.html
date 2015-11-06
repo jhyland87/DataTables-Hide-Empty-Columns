@@ -12,6 +12,7 @@
 </head>
 <body>
 <h1>DatTables HideEmptyColumns Plugin - <i>Target Column Name (JSON or AJAX)</i></h1>
+<small><strong>Description:</strong> Target specific columns by specifying the columns <a href="http://datatables.net/reference/api/column().dataSrc()" target="_blank">data source</a></small><br/><br/>
 <a href="index.html">Other Examples</a>
 <hr/>
 <i>Source Used</i>
@@ -20,7 +21,7 @@
         $('#example').DataTable( {
             dom: 'Bt',
             buttons: [ 'columnsToggle' ],
-            hideEmptyCols: ["extn"], // Target ONLY extn col
+            hideEmptyCols: [ "extn", "position" ], // Target ONLY extn & position columns
             data: dataSet,
             columns: [
                 { title: "Name", data: "name" },
@@ -71,7 +72,7 @@
         $('#example').DataTable( {
             dom: 'Bt',
             buttons: [ 'columnsToggle' ],
-            hideEmptyCols: ["extn"], // Target ONLY extn col
+            hideEmptyCols: [ "extn", "position" ], // Target ONLY extn & position columns
             data: dataSet,
             columns: [
                 { title: "Name", data: "name" },
