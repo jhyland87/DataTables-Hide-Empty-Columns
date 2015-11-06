@@ -1,5 +1,7 @@
 <html>
 <head>
+    <title>DataTables Plugin: Hide Empty Columns - Basic Example</title>
+
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link href="http://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
     <script src="http://nightly.datatables.net/js/jquery.dataTables.js"></script>
@@ -15,7 +17,7 @@
 <i>Source Used</i>
 <pre>
     $(document).ready(function() {
-        $('#example-1').DataTable({
+        $('#example').DataTable({
             dom: 'Bt',
             buttons: [ 'columnsToggle' ],
             hideEmptyCols: true
@@ -23,7 +25,7 @@
     } );
 </pre>
 <hr/>
-<table id="example-1" class="display" cellspacing="0" width="100%">
+<table id="example" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
         <th>Name</th>
@@ -117,7 +119,7 @@
 </html>
 <script>
     $(document).ready(function() {
-        $('#example-1').DataTable({
+        $('#example').DataTable({
             dom: 'Bt',
             buttons: [ 'columnsToggle' ],
             hideEmptyCols: true
