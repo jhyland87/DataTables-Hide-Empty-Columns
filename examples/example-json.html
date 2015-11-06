@@ -1,0 +1,105 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link href="http://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <script src="http://nightly.datatables.net/js/jquery.dataTables.js"></script>
+    <script src="../dataTables.hideEmptyColumns.js"></script>
+</head>
+<body>
+<h1>DatTables HideEmptyColumns Plugin - <i>Target Column Name (JSON or AJAX)</i></h1>
+<a href="index.html">Other Examples</a>
+<hr/>
+<i>Source Used</i>
+<pre>
+    $(document).ready(function() {
+        $('#example-1').DataTable( {
+            hideEmptyCols: ["extn"], // Target ONLY extn col
+            data: dataSet,
+            columns: [
+                { title: "Name", data: "name" },
+                { title: "Position", data: "position" },
+                { title: "Office", data: "office" },
+                { title: "Extn.", data: "extn" },
+                { title: "Start date",  data: "start_date" },
+                { title: "Salary",  data: "salary" }
+            ]
+        } );
+    } );
+</pre>
+<hr/>
+<table id="example-1" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>
+<script>
+    $(document).ready(function() {
+        var dataSet = [
+            {
+                "name": "Tiger Nixon",
+                "position": "System Architect",
+                "salary": "",
+                "start_date": "2011/04/25",
+                "office": "Edinburgh",
+                "extn": ""
+            },
+            {
+                "name": "Garrett Winters",
+                "position": "Accountant",
+                "salary": "",
+                "start_date": "2011/07/25",
+                "office": "Tokyo",
+                "extn": ""
+            },
+            {
+                "name": "Ashton Cox",
+                "position": "Junior Technical Author",
+                "salary": "",
+                "start_date": "2009/01/12",
+                "office": "San Francisco",
+                "extn": ""
+            },
+            {
+                "name": "Cedric Kelly",
+                "position": "Senior Javascript Developer",
+                "salary": "",
+                "start_date": "2012/03/29",
+                "office": "Edinburgh",
+                "extn": ""
+            }
+        ];
+
+        $('#example-1').DataTable( {
+            hideEmptyCols: ["extn"], // Target ONLY extn col
+            data: dataSet,
+            columns: [
+                { title: "Name", data: "name" },
+                { title: "Position", data: "position" },
+                { title: "Office", data: "office" },
+                { title: "Extn.", data: "extn" },
+                { title: "Start date",  data: "start_date" },
+                { title: "Salary",  data: "salary" }
+            ]
+        } );
+    } );
+</script>
