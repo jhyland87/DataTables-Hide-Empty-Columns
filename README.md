@@ -2,7 +2,7 @@
 
 Set the column visibility to hidden for any targeted columns that contain nothing but null or empty values.
 
-*([Demo Here](http://www.justinhyland.com/p/dt/datatables-hide-empty-columns/examples/))*
+*([Demo Here](http://www.linuxdigest.org/misc/script_examples/DataTables-Hide-Empty-Columns/examples/))*
 
 ### Parameters ###
 Parameter 			      | Type 		   | Default  	   | Description
