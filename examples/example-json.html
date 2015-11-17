@@ -1,40 +1,36 @@
 <html>
 <head>
-    <title>DataTables Plugin: Hide Empty Columns - JSON Example</title>
-
+    <title>DataTables HideEmptyColumns Plugin - Target Column Name (JSON or AJAX)</title>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link href="http://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
-    <script src="http://nightly.datatables.net/js/jquery.dataTables.js"></script>
-    <link href="http://cdn.datatables.net/buttons/1.0.1/css/buttons.dataTables.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/buttons.colVis.min.js"></script>
+    <script src="examples.js"></script>
+    <link rel="stylesheet" href="examples.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
     <script src="../dataTables.hideEmptyColumns.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/buttons.colVis.min.js"></script>
 </head>
 <body>
 <h1>DatTables HideEmptyColumns Plugin - <i>Target Column Name (JSON or AJAX)</i></h1>
-<small><strong>Description:</strong> Target specific columns by specifying the columns <a href="http://datatables.net/reference/api/column().dataSrc()" target="_blank">data source</a></small><br/><br/>
+<div class="content-box">
+    <strong>Description:</strong> Target specific columns by specifying the <a href="http://datatables.net/reference/option/columns.name" target="_blank">column name</a>, instead of the index
+</div>
 <a href="index.html">Other Examples</a>
-<hr/>
-<i>Source Used</i>
-<pre>
-    $(document).ready(function() {
-        $('#example').DataTable( {
-            dom: 'Bt',
-            buttons: [ 'columnsToggle' ],
-            hideEmptyCols: [ "extn", "position" ], // Target ONLY extn & position columns
-            data: dataSet,
-            columns: [
-                { title: "Name", data: "name" },
-                { title: "Position", data: "position" },
-                { title: "Office", data: "office" },
-                { title: "Extn.", data: "extn" },
-                { title: "Start date",  data: "start_date" },
-                { title: "Salary",  data: "salary" }
-            ]
-        } );
-    } );
+<hr/><h2>Example Source Code</h2>
+<div id="example-source" class="content-box">
+    Here's the exact jQuery code for this plugin example</div>
+<pre id="example-js-preview">
+<code class="javascript">
+</code>
 </pre>
 <hr/>
+<h2>Example DataTable</h2>
+<div class="content-box">
+    The table below is a basic DataTables instance with <strong>hideEmptyCols</strong> configured to process two columns, which are targeted using the <a href="http://datatables.net/reference/option/columns.name" target="_blank">column name</a>, as opposed to the column index. This is definitely a better method, especially if you generate the table columns dynamically. You may not want to hard code the column indexes, that would require you to change it every time the columns configuration gets changed. The <strong>hideEmptyCols</strong> configuration value can take an array of both column indexes, as well as the column names.
+</div>
 <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
@@ -60,7 +56,7 @@
 </table>
 </body>
 </html>
-<script>
+<script id="example-js">
     $(document).ready(function() {
         var dataSet = [
             { "name": "Tiger Nixon", "position": "System Architect", "salary": "", "start_date": "2011/04/25", "office": "Edinburgh", "extn": "" },

@@ -1,34 +1,36 @@
 <html>
 <head>
-    <title>DataTables Plugin: Hide Empty Columns - Blacklist Example</title>
-
+    <title>DataTables HideEmptyColumns Plugin - Blacklist Example</title>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link href="http://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
-    <script src="http://nightly.datatables.net/js/jquery.dataTables.js"></script>
-    <link href="http://cdn.datatables.net/buttons/1.0.1/css/buttons.dataTables.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/buttons.colVis.min.js"></script>
+    <script src="examples.js"></script>
+    <link rel="stylesheet" href="examples.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
     <script src="../dataTables.hideEmptyColumns.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/buttons.colVis.min.js"></script>
 </head>
 <body>
-<h1>DatTables HideEmptyColumns Plugin - <i>Blacklist Columns</i></h1>
-<small><strong>Description:</strong> Specifying the list of columns as a blacklist (NOT targeted) as opposed to whitelist (default)</small><br/><br/>
+<h1>DataTables HideEmptyColumns Plugin - <i>Blacklist Example</i></h1>
+<div class="content-box">
+    <strong>Description:</strong> Specifying the list of columns as a blacklist (NOT targeted) as opposed to white-list (default)
+</div>
 <a href="index.html">Other Examples</a>
-<hr/>
-<i>Source Used</i>
-<pre>
-    $(document).ready(function() {
-        $('#example').DataTable({
-            dom: 'Bt',
-            buttons: [ 'columnsToggle' ],
-            hideEmptyCols: {
-                columns: [3], // Target everything but column #3 ('Age') (This should hide 'Office')
-                whiteList: false
-            }
-        });
-    } );
+<hr/><h2>Example Source Code</h2>
+<div id="example-source" class="content-box">
+    Here's the exact jQuery code for this plugin example</div>
+<pre id="example-js-preview">
+<code class="javascript">
+</code>
 </pre>
 <hr/>
+<h2>Example DataTable</h2>
+<div class="content-box">
+    The table below is a basic DataTables instance with a slightly more advanced <strong>hideEmptyCols</strong> configuration. By default, <strong>hideEmptyCols</strong> will look at all columns, but you can override this by using the <strong>hideEmptyCols.columns</strong> option. This option can take the column indexes (integer), as well as the column names (string), as long as they are provided inside an array. By default, the <strong>hideEmptyCols.columns</strong> option will signify what columns will be processed, making it a <em>white-list</em>, but if you wish to use it to specify what columns to <em>ignore</em>, then you can set the <strong>hideEmptyCols.columns</strong> option to <em>false</em>, which set the plugin to process all <em>other</em> columns. The below example was configured to ignore the column with the index <em>3</em>, which is the <em>Office</em> column, so notice that even though both the <em>Office</em> and <em>Age</em> columns have no values, only the <em>Office</em> column is hidden
+</div>
 <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
@@ -121,13 +123,13 @@
 </table>
 </body>
 </html>
-<script>
+<script id="example-js">
     $(document).ready(function() {
         $('#example').DataTable({
             dom: 'Bt',
             buttons: [ 'columnsToggle' ],
             hideEmptyCols: {
-                columns: [3], // Target everything but column #3 ('Age') (This should hide 'Office')
+                columns: [ 3 ], // Target everything but column #3 ('Age') (This should hide 'Office')
                 whiteList: false
             }
         });
