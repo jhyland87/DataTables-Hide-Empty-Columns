@@ -100,8 +100,14 @@
             if($.isArray(options)) {
                 // And its populated..
                 if(options.length !== 0) {
-                    // Set the value as the column list
-                    colList = options;
+                    $.each(options, function( k, i ){
+                        // Try to get the real column index from whatever was configured
+                        var indx = api.column( i ).index();
+                        if ( indx !== undefined )
+                            colList.push( indx );
+                        else
+                            colList.push( i );
+                    });
                 }
                 else {
                     // Otherwise, quit! since its just an empty array
@@ -141,7 +147,9 @@
                 emptyCount = 0;
 
                 // If the current column is *not* found in the list..
-                if ( $.inArray(this.index(), colList) === -1 && $.inArray(api.column(this.index()).dataSrc(), colList) === -1 ) {
+                if ( $.inArray(this.index(), colList) === -1 // Check column index #
+                    && $.inArray(api.column(this.index()).dataSrc(), colList) === -1 )// Check column name (dataSrc)
+                {
                     // .. And the list type is whitelist, then skip this loop
                     if ( isWhiteList === true ) return;
                 }

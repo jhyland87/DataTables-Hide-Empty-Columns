@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>DataTables HideEmptyColumns Plugin - Target columns by Indexes</title>
+    <title>DataTables HideEmptyColumns Plugin - Target columns by Indexes and Position</title>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="examples.js"></script>
     <link rel="stylesheet" href="examples.css">
@@ -14,9 +14,9 @@
     <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/buttons.colVis.min.js"></script>
 </head>
 <body>
-<h1>DataTables HideEmptyColumns Plugin - <i>Target columns by Indexes</i></h1>
+<h1>DataTables HideEmptyColumns Plugin - <i>Target columns by Indexes and Position</i></h1>
 <div class="content-box">
-    <strong>Description:</strong> Target specific columns by specifying the <a href="http://datatables.net/reference/api/columns().indexes()" target="_blank">column indexes</a>
+    <strong>Description:</strong> Target specific columns by specifying the <a href="http://datatables.net/reference/api/columns().indexes()" target="_blank">column indexes</a>, or the position via a negative integer.
 </div>
 <a href="index.html">Other Examples</a>
 <hr/><h2>Example Source Code</h2>
@@ -29,7 +29,8 @@
 <hr/>
 <h2>Example DataTable</h2>
 <div class="content-box">
-    The table below is a basic DataTables instance with <strong>hideEmptyCols</strong> configured to process only two columns, column indexes <em>1</em> and <em>3</em>, which are the <em>Position</em> and <em>Age</em> columns. So notice that even though <em>hideEmptyCols</em> is configured to process both of those columns, only the <em>Age</em> column is hidden, since the <em>Position</em> column is not completely empty
+    <p>The <strong>hideEmptyCols</strong> plugin allows you to target columns three different ways. You can use the  <a href="http://datatables.net/reference/api/column().index()" target="_blank">column index</a>, the <a href="http://datatables.net/reference/option/columns.name" target="_blank">column name</a>, or you can specify a negative integer, which would start targeting columns from the right side of the table. This means if you were to use <em>-2</em> on a table, then you would be targeting the column thats second from the right.</p>
+    <p>In the example below, were targeting three columns, using two of the methods described. We target the column indexes <strong>0</strong> and <strong>3</strong>, as well as the column on the end of the table via <strong>-1</strong>. The result is an array targeting the <strong>Name</strong>, <strong>Age</strong> and <strong>Notes</strong> columns. Notice that even though those 3 columns were targeted, only the <strong>Age</strong> and <strong>Notes</strong> were hidden, because the <strong>Name</strong> column is populated with values.</p>
 </div>
 <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
@@ -40,6 +41,7 @@
         <th>Age</th>
         <th>Start date</th>
         <th>Salary</th>
+        <th>Notes</th>
     </tr>
     </thead>
 
@@ -51,6 +53,7 @@
         <th>Age</th>
         <th>Start date</th>
         <th>Salary</th>
+        <th>Notes</th>
     </tr>
     </tfoot>
 
@@ -62,6 +65,7 @@
         <td></td>
         <td>2011/04/25</td>
         <td>$320,800</td>
+        <td></td>
     </tr>
     <tr>
         <td>Garrett Winters</td>
@@ -70,6 +74,7 @@
         <td></td>
         <td>2011/07/25</td>
         <td>$170,750</td>
+        <td></td>
     </tr>
     <tr>
         <td>Ashton Cox</td>
@@ -78,6 +83,7 @@
         <td></td>
         <td>2009/01/12</td>
         <td>$86,000</td>
+        <td></td>
     </tr>
     <tr>
         <td>Cedric Kelly</td>
@@ -86,6 +92,7 @@
         <td></td>
         <td>2012/03/29</td>
         <td>$433,060</td>
+        <td></td>
     </tr>
     <tr>
         <td>Airi Satou</td>
@@ -94,6 +101,7 @@
         <td></td>
         <td>2008/11/28</td>
         <td>$162,700</td>
+        <td></td>
     </tr>
     <tr>
         <td>Brielle Williamson</td>
@@ -102,6 +110,7 @@
         <td></td>
         <td>2012/12/02</td>
         <td>$372,000</td>
+        <td></td>
     </tr>
     <tr>
         <td>Herrod Chandler</td>
@@ -110,6 +119,7 @@
         <td></td>
         <td>2012/08/06</td>
         <td>$137,500</td>
+        <td></td>
     </tr>
     <tr>
         <td>Rhona Davidson</td>
@@ -118,6 +128,7 @@
         <td></td>
         <td>2010/10/14</td>
         <td>$327,900</td>
+        <td></td>
     </tr>
     </tbody>
 </table>
@@ -128,7 +139,7 @@
         $('#example').DataTable({
             dom: 'Bt',
             buttons: [ 'columnsToggle' ],
-            hideEmptyCols: [1,3] // Target Position and Age cols
+            hideEmptyCols: [ 0, 3, -1 ] // Target Name, Age and Notes columns
         });
     } );
 </script>
