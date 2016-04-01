@@ -1,0 +1,326 @@
+<html>
+<head>
+    <title>DataTables HideEmptyColumns Plugin - Basic</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="examples.js"></script>
+    <link rel="stylesheet" href="examples.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <script src="../dataTables.hideEmptyColumns.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/buttons.colVis.min.js"></script>
+</head>
+<body>
+<h1>DataTables HideEmptyColumns Plugin - <i>Basic</i></h1>
+<div class="content-box">
+    <strong>Description:</strong> Target all columns & Use <a href="https://datatables.net/reference/button/columnsToggle" target="_blank">columnsToggle</a>
+</div>
+<a href="index.html">Other Examples</a>
+<hr/><h2>Example Source Code</h2>
+<div id="example-source" class="content-box">
+    Here's the exact jQuery code for this plugin example</div>
+<pre id="example-js-preview">
+<code class="javascript">
+</code>
+</pre>
+<hr/>
+<h2>Example DataTable</h2>
+<div class="content-box">
+    The table below is a basic DataTables instance, with the <a href="https://datatables.net/reference/button/columnsToggle" target="_blank">columnsToggle</a> button initiated to provide the ability to toggle the visibility of each column. The <strong>Age</strong> was intentionally left empty in every row, to show how it was automatically hidden. You can see it is empty by clicking the <strong>Age</strong> button to make it visible again
+</div>
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+
+    <tbody>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td></td>
+        <td>2011/04/25</td>
+        <td>$320,800</td>
+    </tr>
+    <tr>
+        <td>Garrett Winters</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2011/07/25</td>
+        <td>$170,750</td>
+    </tr>
+    <tr>
+        <td>Ashton Cox</td>
+        <td>Junior Technical Author</td>
+        <td>San Francisco</td>
+        <td></td>
+        <td>2009/01/12</td>
+        <td>$86,000</td>
+    </tr>
+    <tr>
+        <td>Cedric Kelly</td>
+        <td>Senior Javascript Developer</td>
+        <td>Edinburgh</td>
+        <td></td>
+        <td>2012/03/29</td>
+        <td>$433,060</td>
+    </tr>
+    <tr>
+        <td>Airi Satou</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2008/11/28</td>
+        <td>$162,700</td>
+    </tr>
+    <tr>
+        <td>Brielle Williamson</td>
+        <td>Integration Specialist</td>
+        <td>New York</td>
+        <td></td>
+        <td>2012/12/02</td>
+        <td>$372,000</td>
+    </tr>
+    <tr>
+        <td>Herrod Chandler</td>
+        <td>Sales Assistant</td>
+        <td>San Francisco</td>
+        <td></td>
+        <td>2012/08/06</td>
+        <td>$137,500</td>
+    </tr>
+    <tr>
+        <td>Rhona Davidson</td>
+        <td>Integration Specialist</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2010/10/14</td>
+        <td>$327,900</td>
+    </tr>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td></td>
+        <td>2011/04/25</td>
+        <td>$320,800</td>
+    </tr>
+    <tr>
+        <td>Garrett Winters</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2011/07/25</td>
+        <td>$170,750</td>
+    </tr>
+    <tr>
+        <td>Ashton Cox</td>
+        <td>Junior Technical Author</td>
+        <td>San Francisco</td>
+        <td></td>
+        <td>2009/01/12</td>
+        <td>$86,000</td>
+    </tr>
+    <tr>
+        <td>Cedric Kelly</td>
+        <td>Senior Javascript Developer</td>
+        <td>Edinburgh</td>
+        <td></td>
+        <td>2012/03/29</td>
+        <td>$433,060</td>
+    </tr>
+    <tr>
+        <td>Airi Satou</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2008/11/28</td>
+        <td>$162,700</td>
+    </tr>
+    <tr>
+        <td>Brielle Williamson</td>
+        <td>Integration Specialist</td>
+        <td>New York</td>
+        <td></td>
+        <td>2012/12/02</td>
+        <td>$372,000</td>
+    </tr>
+    <tr>
+        <td>Herrod Chandler</td>
+        <td>Sales Assistant</td>
+        <td>San Francisco</td>
+        <td></td>
+        <td>2012/08/06</td>
+        <td>$137,500</td>
+    </tr>
+    <tr>
+        <td>Rhona Davidson</td>
+        <td>Integration Specialist</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2010/10/14</td>
+        <td>$327,900</td>
+    </tr>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td></td>
+        <td>2011/04/25</td>
+        <td>$320,800</td>
+    </tr>
+    <tr>
+        <td>Garrett Winters</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2011/07/25</td>
+        <td>$170,750</td>
+    </tr>
+    <tr>
+        <td>Ashton Cox</td>
+        <td>Junior Technical Author</td>
+        <td>San Francisco</td>
+        <td></td>
+        <td>2009/01/12</td>
+        <td>$86,000</td>
+    </tr>
+    <tr>
+        <td>Cedric Kelly</td>
+        <td>Senior Javascript Developer</td>
+        <td>Edinburgh</td>
+        <td></td>
+        <td>2012/03/29</td>
+        <td>$433,060</td>
+    </tr>
+    <tr>
+        <td>Airi Satou</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2008/11/28</td>
+        <td>$162,700</td>
+    </tr>
+    <tr>
+        <td>Brielle Williamson</td>
+        <td>Integration Specialist</td>
+        <td>New York</td>
+        <td></td>
+        <td>2012/12/02</td>
+        <td>$372,000</td>
+    </tr>
+    <tr>
+        <td>Herrod Chandler</td>
+        <td>Sales Assistant</td>
+        <td>San Francisco</td>
+        <td></td>
+        <td>2012/08/06</td>
+        <td>$137,500</td>
+    </tr>
+    <tr>
+        <td>Rhona Davidson</td>
+        <td>Integration Specialist</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2010/10/14</td>
+        <td>$327,900</td>
+    </tr>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td></td>
+        <td>2011/04/25</td>
+        <td>$320,800</td>
+    </tr>
+    <tr>
+        <td>Garrett Winters</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2011/07/25</td>
+        <td>$170,750</td>
+    </tr>
+    <tr>
+        <td>Ashton Cox</td>
+        <td>Junior Technical Author</td>
+        <td>San Francisco</td>
+        <td></td>
+        <td>2009/01/12</td>
+        <td>$86,000</td>
+    </tr>
+    <tr>
+        <td>Cedric Kelly</td>
+        <td>Senior Javascript Developer</td>
+        <td>Edinburgh</td>
+        <td></td>
+        <td>2012/03/29</td>
+        <td>$433,060</td>
+    </tr>
+    <tr>
+        <td>Airi Satou</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2008/11/28</td>
+        <td>$162,700</td>
+    </tr>
+    <tr>
+        <td>Brielle Williamson</td>
+        <td>Integration Specialist</td>
+        <td>New York</td>
+        <td>testf</td>
+        <td>2012/12/02</td>
+        <td>$372,000</td>
+    </tr>
+    <tr>
+        <td>Herrod Chandler</td>
+        <td>Sales Assistant</td>
+        <td>San Francisco</td>
+        <td></td>
+        <td>2012/08/06</td>
+        <td>$137,500</td>
+    </tr>
+    <tr>
+        <td>Rhona Davidson</td>
+        <td>Integration Specialist</td>
+        <td>Tokyo</td>
+        <td></td>
+        <td>2010/10/14</td>
+        <td>$327,900</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+<script id="example-js">
+    $(document).ready(function() {
+        $('#example').DataTable({
+            dom: 'Btp',
+            buttons: [ 'columnsToggle' ],
+            hideEmptyCols: true
+        });
+    } );
+</script>
