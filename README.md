@@ -5,11 +5,14 @@ Set the column visibility to hidden for any targeted columns that contain nothin
 *([Demo Here](http://www.linuxdigest.org/misc/script_examples/DataTables-Hide-Empty-Columns/examples/))*
 
 ### Parameters ###
-Parameter 			      | Type 		   | Default  	   | Description
-------------------------- | -------------- | ------------- | ------------
-`hideEmptyCols`  		  | boolean/object | true	       | Enable/Disable hideEmptyCols plugin
-`hideEmptyCols.columns`   | array		   | *All Columns* | Determine which columns to target, can either use the [column name](http://datatables.net/reference/option/columns.name), the [index](http://datatables.net/reference/api/column().index()), or a negative integer to target columns starting from the right side of the table
-`hideEmptyCols.whiteList` |	boolean 	   | true 		   | Determine if the targets listed in `hideEmptyCols.columns` should be treated as a whitelist or blacklist (`false` will target all columns except those listed)
+Parameter 			      | Type 		  		 		| Default  	   	| Description
+------------------------- | --------------------------- | ------------- | ------------
+`hideEmptyCols`  		  | boolean/object 				| true	       	| Enable/Disable hideEmptyCols plugin
+`hideEmptyCols.columns`   | array		   				| *All Columns* | Determine which columns to target, can either use the [column name](http://datatables.net/reference/option/columns.name), the [index](http://datatables.net/reference/api/column().index()), or a negative integer to target columns starting from the right side of the table
+`hideEmptyCols.whiteList` |	boolean 	   				| true 		   	| Determine if the targets listed in `hideEmptyCols.columns` should be treated as a whitelist or blacklist (`false` will target all columns except those listed)
+`hideEmptyCols.trim`	  | boolean		   				| true		   	| Trim the values before determining if the cell is empty
+`hideEmptyCols.perPage`   | boolean 					| false			| Only hide column(s) if they're empty on the current page (executes on necessary events)
+`hideEmptyCols.emptyVals` | array/string/number/regex	| *N/A*			| Define extra values to be interpred as empty (String, Number or Regex pattern, or an array of said values)
 
 
 ### Example Usage ###
@@ -61,4 +64,15 @@ $('#example-1').DataTable({
     	whiteList: false
     }
 });
+```
+
+Target column indexes 1 and 4, adding custom empty values, and only hide the column if empty on current page
+```javascript
+$('#example').DataTable({
+    hideEmptyCols: {
+        columns: [ 1, 4 ],
+        perPage: true,
+        emptyVals: [ '0', /(no|false|disabled)/i ]
+    }
+})
 ```
