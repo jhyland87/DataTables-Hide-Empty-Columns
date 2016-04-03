@@ -116,15 +116,7 @@
         // Check for either hideEmptyCols or hideEmptyColumns
         var options = dtSettings.oInit.hideEmptyCols || dtSettings.oInit.hideEmptyColumns
 
-        console.log('OPTIONS:',options)
-
         // Check if either of the above settings are enabled in any way (It can be boolean, array or an object)
-        /*if ( options === true
-            //|| ( $.isArray( options ) && options.length !== 0 )
-            || ( $.isArray( options ) )
-            //|| ( $.isPlainObject(options) && typeof options.columns !== 'undefined') ) {
-            || ( $.isPlainObject( options ) ) ) {*/
-
         if( options ){
             // Helper function to get the value of a config item
             var _cfgItem = function( item, def ){
@@ -142,7 +134,6 @@
             var api         = new $.fn.dataTable.Api( dtSettings ),
                 emptyCount  = 0,
                 colList     = [],
-                //isWhiteList = ! ($.isPlainObject(options) && typeof options.whiteList !== 'undefined' && options.whiteList === false) // Default to true
                 isWhiteList = ! _cfgItem( 'whiteList', false ),
                 perPage     = _cfgItem( 'perPage' ),
                 trimData    = _cfgItem( 'trim', true )
