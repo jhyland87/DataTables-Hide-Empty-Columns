@@ -1,5 +1,9 @@
 # DataTables Plugin - Hide Empty Columns #
 
+**Current HEC Version**: *v1.2.1*
+**Supported jQuery**: *v1.11.3+*
+**Supported DataTables**: *v1.10.9+*
+
 Set the column visibility to hidden for any targeted columns that contain nothing but null or empty values.
 
 *([Demo Here](http://www.linuxdigest.org/misc/script_examples/DataTables-Hide-Empty-Columns/examples/))*
@@ -76,3 +80,10 @@ $('#example').DataTable({
     }
 })
 ```
+
+### ToDo ###
+
+Features I plan on adding whenever time permits..
+
+* **Persistent user preferences (`perPage` setting)** - When a viewer hides/shows a specific column or columns, said column(s) should stay in that state, regardless of if they're populated or not; Currently, if a viewer hides/shows a column, then changes pages or filters the table (anything causing the JS to re-execute the column population checks), the columns will be toggled, despite what the viewer set them to be manually.
+* **Compatibility with DataTables `[stateSave](https://datatables.net/reference/option/stateSave)` setting** - As shown in an [issue](https://github.com/jhyland87/DataTables-Hide-Empty-Columns/issues/2) opened by a user, the DataTables `stateSave` setting clashes with *HEC*, I need to fix that :(
