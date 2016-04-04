@@ -235,11 +235,13 @@
                     return
                 }
             }
+
             // If its just a basic 'true' targeting all columns..
             else if( options === true ){
                 // .. Then get the list of all column indexes
                 colList = api.columns().indexes().toArray()
             }
+
             // Anything else should just go away
             else {
                 return
@@ -248,9 +250,12 @@
             // If were checking for each page, then attach functions to any events that may introduce or remove new
             // columns/rows from the table (page, order, search and length)
             if( perPage === true ) {
-                var checkPage = function(  ) {
+
+                // Function to check the column rows
+                var _checkPage = function() {
                     var info = api.page.info()
 
+                    // Iterate through the table, column by column
                     api.columns().every( function() {
                         emptyCount = 0
 
@@ -267,34 +272,34 @@
                             if( isWhiteList === false ) return
                         }
 
+                        // Reset the number of empty rows
+                        var empty = 0
+
+                        // This gets ALL data in current column.. Need just the visible rows
                         var data = this.data().toArray()
 
-                        // Count the number of empty rows for this page only
-                        for( var i = info.start; i < info.end; i ++ ) {
-                            if( _isEmpty( data[ i ] ) ) {
-                                emptyCount ++
-                            }
-                        }
+                        // Only loop through the rows that are visible, using the page info
+                        for( var i = info.start; i < info.end; i ++ )
+                            if( $.trim( data[ i ] ) === '' )
+                                empty++
 
                         // Toggle the visibility based on the empty row count and the rows visible
-                        if( emptyCount === ( info.end - info.start ) ) {
+                        if( empty  === info.length )
                             api.column( this.index() ).visible( false )
-                        }
-                        else {
+                        else
                             api.column( this.index() ).visible( true )
-                        }
-
                     } )
                 }
 
                 // Attach it to all of the related events..
-                api.on( 'page.dt', checkPage )
-                api.on( 'search.dt', checkPage )
-                api.on( 'order.dt', checkPage )
-                api.on( 'length.dt', checkPage )
+                api
+                    .on( 'page.dt',   _checkPage )
+                    .on( 'search.dt', _checkPage )
+                    .on( 'order.dt',  _checkPage )
+                    .on( 'length.dt', _checkPage )
 
                 // And execute it for the initial load
-                checkPage()
+                _checkPage()
             }
 
             // Otherwise, just check all the columns on init (which is now)
@@ -319,6 +324,7 @@
 
                     var data = this.data().toArray()
 
+                    console.log('DATA:',data)
                     // Keep track of how many empty cells are found
                     for( var i = 0; i < data.length; i ++ ) {
                         if( _isEmpty( data[ i ] ) )
