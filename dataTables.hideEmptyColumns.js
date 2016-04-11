@@ -284,7 +284,7 @@
                                 empty++
 
                         // Toggle the visibility based on the empty row count and the rows visible
-                        if( empty  === info.length )
+                        if ( empty === ( info.end - info.start ))
                             api.column( this.index() ).visible( false )
                         else
                             api.column( this.index() ).visible( true )
