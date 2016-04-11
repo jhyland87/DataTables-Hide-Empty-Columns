@@ -256,7 +256,7 @@
                     var info = api.page.info()
 
                     // Iterate through the table, column by column
-                    api.columns().every( function() {
+                    api.columns({search:'applied'}).every(function () {
                         emptyCount = 0
 
                         // If the current column is *not* found in the list..
