@@ -1,0 +1,297 @@
+<html>
+<head>
+    <title>DataTables HideEmptyColumns Plugin - perPage and stateSave</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="examples.js"></script>
+    <link rel="stylesheet" href="examples.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    <script src="../dataTables.hideEmptyColumns.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/buttons.colVis.min.js"></script>
+</head>
+<body>
+<h1>DataTables HideEmptyColumns Plugin - <i>perPage and stateSave</i></h1>
+<div class="content-box">
+    <strong>Description:</strong> Target all columns & Use <a href="https://datatables.net/reference/button/columnsToggle" target="_blank">columnsToggle</a> to toggle the column visibility, while hiding the columns on a per-page basis, saving the status via the <a href="https://datatables.net/reference/option/stateSave" target="_blank">stateSave</a> feature.
+</div>
+<a href="index.html">Other Examples</a>
+<hr/><h2>Example Source Code</h2>
+<div id="example-source" class="content-box">
+    Here's the exact jQuery code for this plugin example</div>
+<pre id="example-js-preview">
+<code class="javascript">
+</code>
+</pre>
+<hr/>
+<h2>Example DataTable</h2>
+<div class="content-box">
+    The table below is a DataTables instance, with the <a href="https://datatables.net/reference/button/columnsToggle" target="_blank">columnsToggle</a> button initiated to provide the ability to toggle the visibility of each column, and the <a href="https://datatables.net/reference/option/stateSave" target="_blank">stateSave</a> option enabled. The <strong>Age</strong> column is populated only in two rows found on the 2nd page (if sorted by the name, ascending). You can see the column get set to visible when you click on the <strong>2</strong> in the pagination options, then it goes invisible on the other pages. 
+</div>
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+
+    <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td></td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td></td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td></td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+            </tr>
+            <tr>
+                <td>Cedric Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>Edinburgh</td>
+                <td></td>
+                <td>2012/03/29</td>
+                <td>$433,060</td>
+            </tr>
+            <tr>
+                <td>Airi Satou</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td></td>
+                <td>2008/11/28</td>
+                <td>$162,700</td>
+            </tr>
+            <tr>
+                <td>Brielle Williamson</td>
+                <td>Integration Specialist</td>
+                <td>New York</td>
+                <td></td>
+                <td>2012/12/02</td>
+                <td>$372,000</td>
+            </tr>
+            <tr>
+                <td>Herrod Chandler</td>
+                <td>Sales Assistant</td>
+                <td>San Francisco</td>
+                <td>23</td>
+                <td>2012/08/06</td>
+                <td>$137,500</td>
+            </tr>
+            <tr>
+                <td>Rhona Davidson</td>
+                <td>Integration Specialist</td>
+                <td>Tokyo</td>
+                <td></td>
+                <td>2010/10/14</td>
+                <td>$327,900</td>
+            </tr>
+            <tr>
+                <td>Colleen Hurst</td>
+                <td>Javascript Developer</td>
+                <td>San Francisco</td>
+                <td></td>
+                <td>2009/09/15</td>
+                <td>$205,500</td>
+            </tr>
+            <tr>
+                <td>Sonya Frost</td>
+                <td>Software Engineer</td>
+                <td>Edinburgh</td>
+                <td></td>
+                <td>2008/12/13</td>
+                <td>$103,600</td>
+            </tr>
+            <tr>
+                <td>Jena Gaines</td>
+                <td>Office Manager</td>
+                <td>London</td>
+                <td></td>
+                <td>2008/12/19</td>
+                <td>$90,560</td>
+            </tr>
+            <tr>
+                <td>Quinn Flynn</td>
+                <td>Support Lead</td>
+                <td>Edinburgh</td>
+                <td></td>
+                <td>2013/03/03</td>
+                <td>$342,000</td>
+            </tr>
+            <tr>
+                <td>Charde Marshall</td>
+                <td>Regional Director</td>
+                <td>San Francisco</td>
+                <td></td>
+                <td>2008/10/16</td>
+                <td>$470,600</td>
+            </tr>
+            <tr>
+                <td>Haley Kennedy</td>
+                <td>Senior Marketing Designer</td>
+                <td>London</td>
+                <td></td>
+                <td>2012/12/18</td>
+                <td>$313,500</td>
+            </tr>
+            <tr>
+                <td>Tatyana Fitzpatrick</td>
+                <td>Regional Director</td>
+                <td>London</td>
+                <td></td>
+                <td>2010/03/17</td>
+                <td>$385,750</td>
+            </tr>
+            <tr>
+                <td>Michael Silva</td>
+                <td>Marketing Designer</td>
+                <td>London</td>
+                <td></td>
+                <td>2012/11/27</td>
+                <td>$198,500</td>
+            </tr>
+            <tr>
+                <td>Paul Byrd</td>
+                <td>Chief Financial Officer (CFO)</td>
+                <td>New York</td>
+                <td></td>
+                <td>2010/06/09</td>
+                <td>$725,000</td>
+            </tr>
+            <tr>
+                <td>Gloria Little</td>
+                <td>Systems Administrator</td>
+                <td>New York</td>
+                <td></td>
+                <td>2009/04/10</td>
+                <td>$237,500</td>
+            </tr>
+            <tr>
+                <td>Bradley Greer</td>
+                <td>Software Engineer</td>
+                <td>London</td>
+                <td></td>
+                <td>2012/10/13</td>
+                <td>$132,000</td>
+            </tr>
+            <tr>
+                <td>Dai Rios</td>
+                <td>Personnel Lead</td>
+                <td>Edinburgh</td>
+                <td></td>
+                <td>2012/09/26</td>
+                <td>$217,500</td>
+            </tr>
+            <tr>
+                <td>Jenette Caldwell</td>
+                <td>Development Lead</td>
+                <td>New York</td>
+                <td></td>
+                <td>2011/09/03</td>
+                <td>$345,000</td>
+            </tr>
+            <tr>
+                <td>Yuri Berry</td>
+                <td>Chief Marketing Officer (CMO)</td>
+                <td>New York</td>
+                <td></td>
+                <td>2009/06/25</td>
+                <td>$675,000</td>
+            </tr>
+            <tr>
+                <td>Caesar Vance</td>
+                <td>Pre-Sales Support</td>
+                <td>New York</td>
+                <td></td>
+                <td>2011/12/12</td>
+                <td>$106,450</td>
+            </tr>
+            <tr>
+                <td>Doris Wilder</td>
+                <td>Sales Assistant</td>
+                <td>Sidney</td>
+                <td></td>
+                <td>2010/09/20</td>
+                <td>$85,600</td>
+            </tr>
+            <tr>
+                <td>Angelica Ramos</td>
+                <td>Chief Executive Officer (CEO)</td>
+                <td>London</td>
+                <td></td>
+                <td>2009/10/09</td>
+                <td>$1,200,000</td>
+            </tr>
+            <tr>
+                <td>Gavin Joyce</td>
+                <td>Developer</td>
+                <td>Edinburgh</td>
+                <td></td>
+                <td>2010/12/22</td>
+                <td>$92,575</td>
+            </tr>
+            <tr>
+                <td>Jennifer Chang</td>
+                <td>Regional Director</td>
+                <td>Singapore</td>
+                <td>22</td>
+                <td>2010/11/14</td>
+                <td>$357,650</td>
+            </tr>
+            <tr>
+                <td>Brenden Wagner</td>
+                <td>Software Engineer</td>
+                <td>San Francisco</td>
+                <td></td>
+                <td>2011/06/07</td>
+                <td>$206,850</td>
+            </tr>
+    </tbody>
+</table>
+</body>
+</html>
+<script id="example-js">
+    $(document).ready(function() {
+        $('#example').DataTable({
+            dom: 'lBfrtip',
+            buttons: [ 'columnsToggle' ],
+            hideEmptyCols: {
+                perPage: true
+            },
+            stateSave: true
+        });
+    } );
+</script>
