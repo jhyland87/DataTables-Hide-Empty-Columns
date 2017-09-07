@@ -117,7 +117,7 @@
 "use strict"
 ;(function(window, document, $) {
     // On DT Initialization
-    $(document).on('init.dt', function(e, dtSettings) {
+    $(document).on('init.dt draw.dt', function(e, dtSettings) {
         if ( e.namespace !== 'dt' )
             return
 
