@@ -60,8 +60,8 @@
  *      Required:           false
  *      Type:               boolean
  *      Default:            true
- *      Description:        Determines if the main _checkColumns function should execute after the DT state is loaded 
- *                          (when the DT stateSave option is enabled). This function will override the column visibility 
+ *      Description:        Determines if the main _checkColumns function should execute after the DT state is loaded
+ *                          (when the DT stateSave option is enabled). This function will override the column visibility
  *                          state in stateSave
  *
  * hideEmptyCols.perPage
@@ -130,9 +130,9 @@
 
         // Helper function to get the value of a config item
         var _cfgItem = function( item, def ){
-            if( $.isPlainObject( options ) && typeof options[ item ] !== 'undefined' ) 
+            if( $.isPlainObject( options ) && typeof options[ item ] !== 'undefined' )
                 return options[ item ]
-           
+
             return def
         }
 
@@ -273,10 +273,9 @@
                 // This gets ALL data in current column.. Need just the visible rows
                 var data     = this.data().toArray(),
                     isVis    = false,
-                    intStart = ( perPage === true ? info.start : 0 ),
-                    intStop  = ( perPage === true ? info.end   : data.length ),
+                    intStart = ( perPage === true && info.serverSide === false ? info.start : 0 ),
+                    intStop  = ( perPage === true && info.serverSide === false ? info.end   : data.length ),
                     dtState  = api.state.loaded()
-
 
                 //for( var i = 0; i < data.length; i ++ ) {
                 for( var i = intStart; i < intStop; i++ ){
@@ -298,12 +297,13 @@
 
         // If were checking for each page, then attach functions to any events that may introduce or remove new
         // columns/rows from the table (page, order, search and length)
-        if( perPage === true ) 
+        if( perPage === true )
             api
                 .on( 'page.dt',   _checkColumns )
                 .on( 'search.dt', _checkColumns )
                 .on( 'order.dt',  _checkColumns )
                 .on( 'length.dt', _checkColumns )
+                .on( 'draw.dt',   _checkColumns ) // triggers after data loaded with AJAX
 
         // Run check for the initial page load
         _checkColumns()
