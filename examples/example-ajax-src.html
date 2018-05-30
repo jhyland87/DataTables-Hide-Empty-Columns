@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>DataTables HideEmptyColumns Plugin - Basic</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="examples.js"></script>
+    <link rel="stylesheet" href="examples.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/default.min.css">
+    <script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.js"></script>
+    <script src="../dataTables.hideEmptyColumns.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/buttons/1.0.3/js/buttons.colVis.min.js"></script>
+</head>
+<body>
+<h1>DataTables HideEmptyColumns Plugin - <i>Basic</i></h1>
+<div class="content-box">
+    <strong>Description:</strong> Hiding empty columns on a table using an Ajax source.
+</div>
+<a href="index.html">Other Examples</a>
+<hr/><h2>Example Source Code</h2>
+<div id="example-source" class="content-box">
+    Here's the exact jQuery code for this plugin example</div>
+<pre id="example-js-preview">
+<code class="javascript">
+</code>
+</pre>
+<hr/>
+<h2>Example DataTable</h2>
+<div class="content-box">
+    The table below is a DataTables instance using an AJAX source for its data, with the <a href="https://datatables.net/reference/button/columnsToggle" target="_blank">columnsToggle</a> button initiated to provide the ability to toggle the visibility of each column. The last column with the title <em>PTO</em> was intentionally left empty for all rows and should automatically be hidden when the table loads.
+</div>
+<table id="example" class="display" cellspacing="0" width="100%">
+</table>
+</body>
+</html>
+<script id="example-js">
+    $(document).ready(function() {
+        $('#example').DataTable({
+            dom: 'lBfrtip',
+            buttons: [ 'columnsToggle' ],
+            hideEmptyCols: true,
+            ajax: 'dataSrc.php',
+            columns: [
+                {
+                    title: 'Employee ID',
+                    data:  'emp_id'
+                }, {
+                    title: 'Name',
+                    data:  'name'
+                }, {
+                    data:  'extn',
+                    title: 'Extension'
+                }, {
+                    data:  'age',
+                    title: 'Age'
+                }, {
+                    data:  'position',
+                    title: 'Position'
+                }, {
+                    data: 'pto',
+                    title: 'PTO'
+                }
+            ],
+            rowId: 'emp_id'
+        });
+    } );
+</script>
