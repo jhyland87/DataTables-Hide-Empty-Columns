@@ -4,6 +4,10 @@
 **Supported jQuery**: *v1.11.3+*
 **Supported DataTables**: *v1.10.9+*
 
+## :exclamation: Note: This plugin is not actively maintained :exclamation: 
+###### This plugin/library was created by me out of necessity, and released to help others that may need it. I don't have time to actively maintain the code to keep up with DataTables updates or bugs in my code. If you run into an issue, feel free to attribute your own changes. :thumbsup:
+---
+
 Set the column visibility to hidden for any targeted columns that contain nothing but null or empty values.
 
 *([Demo Here](http://demo.jsdigest.com/DataTables-Hide-Empty-Columns/examples/))*
