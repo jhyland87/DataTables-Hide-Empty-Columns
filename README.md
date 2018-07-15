@@ -70,7 +70,7 @@ Target *all* columns except column indexes **1** and **3**
 $('#example-1').DataTable({
     hideEmptyCols: {
     	columns: [1,3],
-    	whiteList: false
+    	whiteList: true
     }
 });
 ```
